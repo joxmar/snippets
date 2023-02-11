@@ -1,0 +1,180 @@
+<!doctype html>
+<html class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        colors: {
+          'black': '#000000',
+          'white': '#ffffff',
+          'gray': '#76777A',
+          'light-gray': '#EDEDED',
+          'bcolor-1': '#23192D',
+          'bcolor-2': '#FD0A54',
+          'bcolor-3': '#F57576'
+        },
+        fontFamily: {
+          sans: ['Poppins', 'sans-serif'],
+          arial: ['Arial', 'sans-serif']
+        },
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="themes/css/blackboard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+</head>
+<body>
+ <main class="flex flex-row min-h-screen">
+  <aside class="basis-1/4 sticky top-0 max-h-screen p-4">
+    <div class="bg-bcolor-1 rounded-3xl p-20 h-full">
+      <h1 class="text-white">Jorge's Code snippets</h1>
+      <ul id="cat-links" class="mt-10">
+        <li class="mt-4"><button class="text-bcolor-3 hover:text-bcolor-2">Javascript</button></li>
+        <li class="mt-4"><button class="text-bcolor-3 hover:text-bcolor-2">PHP</button></li>
+        <li class="mt-4"><button class="text-bcolor-3 hover:text-bcolor-2">Wordpress</button></li>
+        <li class="mt-4"><button class="text-bcolor-3 hover:text-bcolor-2">ACF</button></li>
+      </ul>
+    </div>
+  </aside>
+  <section class="basis-3/4 pl-20 pr-20 pt-5 h-auto">
+    <div class="p-4 bg-white rounded-xl drop-shadow-2xl mb-20 sticky top-0 z-10">
+      <input type="text" id="autocomplete">
+    </div>
+
+    <div class="snippets ">
+      <article class="snippet-container bg-white rounded-xl drop-shadow-2xl mt-10" data-categories="php wordpress">
+        <div class="p-10">
+          <div class="categories">php wordpress</div>
+          <h2 class="snippet-title">Add stylesheets to Gutenberg and front end</h2>
+        </div>
+        <div class="code">
+          <pre><code data-language="php">
+&lt;?php
+// Gutenberg work editor stylesheet
+add_theme_support('editor-styles');
+add_editor_style( 'work-editor-styles.css' );
+
+
+// OR add the styles to specific custom post type
+add_theme_support('editor-styles');
+function wpdocs_theme_add_editor_styles() {
+  global $post;
+
+  $my_post_type = 'posttype';
+
+  // New post (init hook).
+  if ( false !== stristr( $_SERVER['REQUEST_URI'], 'post-new.php' )
+      && ( isset( $_GET['post_type'] ) === true && $my_post_type == $_GET['post_type'] )
+  ) {
+    add_editor_style( get_stylesheet_directory_uri() . '/work-editor-styles.css' );
+  }
+
+  // Edit post (pre_get_posts hook).
+  if ( stristr( $_SERVER['REQUEST_URI'], 'post.php' ) !== false
+      && is_object( $post )
+      && $my_post_type == get_post_type( $post->ID )
+  ) {
+    add_editor_style( get_stylesheet_directory_uri() . '/work-editor-styles.css' );
+  }
+}
+add_action( 'init',          'wpdocs_theme_add_editor_styles' );
+add_action( 'pre_get_posts', 'wpdocs_theme_add_editor_styles' );
+
+
+// now lets add the stylesheet to the front end CPT single page
+add_action( 'wp_enqueue_scripts', 'enqueue_frontend_assets', 10 );
+function enqueue_frontend_assets(){
+    if( is_singular( 'posttype' ) ){
+        wp_enqueue_style( 'style-posttype', get_theme_file_uri() . 'work-editor-styles.css' );
+    }
+}
+          </code></pre>
+        </div>
+      </article>
+
+      <article class="snippet-container bg-white rounded-xl drop-shadow-2xl mt-10" data-categories="javascript">
+        <div class="p-10">
+          <div class="categories">Javascript</div>
+          <h2 class="snippet-title">Get URL parameters</h2>
+        </div>
+        <div class="code">
+          <pre><code data-language="javascript">
+const queryString = window.location.search
+const urlParams = new URLSearchParams(queryString);
+const applicationParam = urlParams.get('parameter-name') //parameter name
+if(applicationParam !== null){
+    // do something
+}
+          </code></pre>
+        </div>
+      </article>
+
+
+      
+      
+    </div>
+  </section>
+ </main>
+
+
+ <!-- <article class="snippet-container bg-white rounded-xl drop-shadow-2xl mt-10">
+  <div class="p-10">
+    <div class="categories">Javascript</div>
+    <h2 class="snippet-title">Get URL parameters</h2>
+  </div>
+  <div class="code">
+    <pre><code data-language="javascript">
+}
+    </code></pre>
+  </div>
+</article> -->
+<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+<script>
+  let snippetNames = [];
+  const snippets = document.querySelectorAll('.snippet-title');
+
+  for (let i = 0; i < snippets.length; i++) {
+    let nameToId = snippets[i].innerHTML;
+    let snippetParentDiv = snippets[i].closest('.snippet-container');
+    snippetParentDiv.setAttribute('data-snippet-name', nameToId);
+
+    if(!snippetNames.includes(nameToId)){
+      snippetNames.push(nameToId);
+    };
+  }
+  console.log(snippetNames);
+
+
+  // initiate auto complete
+
+  const autoCompleteJS = new autoComplete({ 
+    selector: "#autocomplete",
+    placeHolder: "Search for Food...",
+    data: {
+      src: snippetNames
+    },
+    resultItem: {
+      highlight: true,
+    }
+   });
+
+   document.querySelector("#autocomplete").addEventListener("selection", function (event) {
+    // "event.detail" carries the autoComplete.js "feedback" object
+    console.log(event.detail.selection.value);
+  });
+  
+</script>
+
+<script src="js/rainbow.js"></script>
+<script src="js/language/generic.js"></script>
+<script src="js/language/php.js"></script>
+<script src="js/language/javascript.js"></script>
+</body>
+</html>

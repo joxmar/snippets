@@ -1,0 +1,42 @@
+Snippets library.
+
+Will create a snippest library where I can easily com and search saved snippets.
+Features:
+- snippets will be save under categories
+- show all snippets and a list of categories links to display all those
+- search and auto complete searchbox:
+  should be able to search by snippet name or category
+
+Tools to use:
+Sintax highlighter https://craig.is/making/rainbows
+auto complete https://tarekraafat.github.io/autoComplete.js/#/installation
+
+Where is the data stored???
+as json 
+{
+  name: ''
+  cats: []
+  code: 
+  language: ''
+}
+
+Structure:
+autocomplete box
+categories list links
+snippet:
+  categories
+  Snippet name
+  code
+
+How will auto omplete find it? 
+
+div#snippet name data-categories
+
+
+
+Move it later on to react
+
+
+
+Inspo:
+https://codetogo.io/
