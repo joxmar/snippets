@@ -3,10 +3,20 @@ import { autoLogin } from "./snippets/wp-auto-login.js";
 import { jsGetURL } from "./snippets/js-get-url-parameters.js";
 import { gutBlocksToDisplay } from "./snippets/wp-gutenberg-select-blocks-to-display.js";
 import { mailchimpSuccess } from "./snippets/mailchimp-success-callback.js";
+import { jsCreateElement } from "./snippets/js-create-element.js";
+import { jsaddRemoveHasClass } from "./snippets/js-add-remove-class.js";
 
 
 // add snippet into the array
-let allSnippets = [gutenAddCSS,jsGetURL,autoLogin,gutBlocksToDisplay, mailchimpSuccess];
+let allSnippets = [
+  gutenAddCSS,
+  jsGetURL,
+  autoLogin,
+  gutBlocksToDisplay, 
+  mailchimpSuccess,
+  jsCreateElement,
+  jsaddRemoveHasClass
+];
 
 // we will use this array to save the snippet names and use it on autocomplete
 let snippetNames = [];
