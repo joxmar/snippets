@@ -152,6 +152,14 @@ categoryBtn.forEach(el => {
   })
 });
 
+// clear all button
+const showAllSnippets = document.getElementById('show-all');
+showAllSnippets.addEventListener('click', function(){
+  snippetContainers.forEach(element => {
+    element.classList.remove('hide-snippet');
+  });
+});
+
 
 // initiate auto complete
 const autoCompleteJS = new autoComplete({ 
