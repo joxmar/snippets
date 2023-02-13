@@ -11,32 +11,16 @@ Tools to use:
 Sintax highlighter https://craig.is/making/rainbows
 auto complete https://tarekraafat.github.io/autoComplete.js/#/installation
 
-Where is the data stored???
-as json 
-{
-  name: ''
-  cats: []
-  code: 
-  language: ''
-}
 
-Structure:
-autocomplete box
-categories list links
-snippet:
-  categories
-  Snippet name
-  code
+Create new snippet:
+copy an existing snippet from js/snippets/ and adjust to your new snippet info.
 
-How will auto omplete find it? 
+pay attenttion to the export, the const variable must be unique.
+import the variable and file path.
+add the variable to the allSnippets array
 
-div#snippet name data-categories
+that's all
 
 
 
 Move it later on to react
-
-
-
-Inspo:
-https://codetogo.io/
