@@ -2,10 +2,11 @@ import { gutenAddCSS } from "./snippets/wp-add-css-to-gutenberg.js";
 import { autoLogin } from "./snippets/wp-auto-login.js";
 import { jsGetURL } from "./snippets/js-get-url-parameters.js";
 import { gutBlocksToDisplay } from "./snippets/wp-gutenberg-select-blocks-to-display.js";
+import { mailchimpSuccess } from "./snippets/mailchimp-success-callback.js";
 
 
 // add snippet into the array
-let allSnippets = [gutenAddCSS,jsGetURL,autoLogin,gutBlocksToDisplay];
+let allSnippets = [gutenAddCSS,jsGetURL,autoLogin,gutBlocksToDisplay, mailchimpSuccess];
 
 // we will use this array to save the snippet names and use it on autocomplete
 let snippetNames = [];
