@@ -7,6 +7,8 @@ import { jsCreateElement } from "./snippets/js-create-element.js";
 import { jsaddRemoveHasClass } from "./snippets/js-add-remove-class.js";
 import { jsGetPrevNextSibling } from "./snippets/js-get-previous-next-sibling.js";
 import { jsCopyToClipboard } from "./snippets/js-copy-text-to-clipboard.js";
+import { wpLoadArchivePlugin } from "./snippets/wp-plugin-add-archive-templatephp.js";
+
 
 // add snippet into the array
 let allSnippets = [
@@ -18,7 +20,8 @@ let allSnippets = [
   jsCreateElement,
   jsaddRemoveHasClass,
   jsGetPrevNextSibling,
-  jsCopyToClipboard
+  jsCopyToClipboard,
+  wpLoadArchivePlugin
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
