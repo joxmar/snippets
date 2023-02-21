@@ -1,7 +1,7 @@
 export const mailchimpSuccess = {
 name : "Hide MailChimp form on successful submit and thank you message",
 cats : ['javascript', 'jQuery', 'Mailchimp'],
-language : "Javascript",
+language : "HTML",
 snippet : `<pre><code data-language="javascript">
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 <script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='FNAME';ftypes[1]='text';fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));

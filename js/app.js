@@ -6,8 +6,7 @@ import { mailchimpSuccess } from "./snippets/mailchimp-success-callback.js";
 import { jsCreateElement } from "./snippets/js-create-element.js";
 import { jsaddRemoveHasClass } from "./snippets/js-add-remove-class.js";
 import { jsGetPrevNextSibling } from "./snippets/js-get-previous-next-sibling.js";
-
-
+import { jsCopyToClipboard } from "./snippets/js-copy-text-to-clipboard.js";
 
 // add snippet into the array
 let allSnippets = [
@@ -18,7 +17,8 @@ let allSnippets = [
   mailchimpSuccess,
   jsCreateElement,
   jsaddRemoveHasClass,
-  jsGetPrevNextSibling
+  jsGetPrevNextSibling,
+  jsCopyToClipboard
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
