@@ -5,6 +5,8 @@ import { gutBlocksToDisplay } from "./snippets/wp-gutenberg-select-blocks-to-dis
 import { mailchimpSuccess } from "./snippets/mailchimp-success-callback.js";
 import { jsCreateElement } from "./snippets/js-create-element.js";
 import { jsaddRemoveHasClass } from "./snippets/js-add-remove-class.js";
+import { jsGetPrevNextSibling } from "./snippets/js-get-previous-next-sibling.js";
+
 
 
 // add snippet into the array
@@ -15,7 +17,8 @@ let allSnippets = [
   gutBlocksToDisplay, 
   mailchimpSuccess,
   jsCreateElement,
-  jsaddRemoveHasClass
+  jsaddRemoveHasClass,
+  jsGetPrevNextSibling
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
