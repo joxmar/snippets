@@ -8,6 +8,7 @@ import { jsaddRemoveHasClass } from "./snippets/js-add-remove-class.js";
 import { jsGetPrevNextSibling } from "./snippets/js-get-previous-next-sibling.js";
 import { jsCopyToClipboard } from "./snippets/js-copy-text-to-clipboard.js";
 import { wpLoadArchivePlugin } from "./snippets/wp-plugin-add-archive-templatephp.js";
+import { npmDropboxIgnoreNodeModules } from "./snippets/npm-dropbox-ignore-node-modules.js";
 
 
 // add snippet into the array
@@ -21,7 +22,8 @@ let allSnippets = [
   jsaddRemoveHasClass,
   jsGetPrevNextSibling,
   jsCopyToClipboard,
-  wpLoadArchivePlugin
+  wpLoadArchivePlugin,
+  npmDropboxIgnoreNodeModules
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
@@ -88,14 +90,7 @@ for (let i = 0; i < allSnippets.length; i++) {
   // snippet code
   const snippetCodeContainer = document.createElement('div');
   snippetCodeContainer.classList.add('code');
-
-  const snippetCodePre = document.createElement('pre');
-  const snippetCodeTag = document.createElement('code');
-  snippetCodeTag .setAttribute('data-snippet-name', snippetLanguage);
-  snippetCodeTag.innerHTML = theSnippet;
-
-  snippetCodePre.appendChild(snippetCodeTag);
-  snippetCodeContainer.appendChild(snippetCodePre);
+  snippetCodeContainer.innerHTML = theSnippet;
 
 
   // now append details to the snippet container

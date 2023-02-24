@@ -12,5 +12,6 @@ function get_cpt_archive_template( $archive_template ) {
   return $archive_template;
 }
 add_filter( 'archive_template', 'get_cpt_archive_template' );
-?&gt;`
+?&gt;
+</code></pre>`
 }
