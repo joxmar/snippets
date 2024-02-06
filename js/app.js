@@ -14,7 +14,11 @@ import { registerAcfBlockTemplate } from "./snippets/wp-registrer-ACF-block-temp
 import { wpGetAllCpt } from "./snippets/wp-get-all-registered-cpt.js";
 import { wpChangeLoginLogo } from "./snippets/wp-change-Login-logo-and-link-URL.js";
 import { wpBlogSearchArchiveShortcodes } from "./snippets/wp-create-blog-search-archive-loop-shortcodes.js";
- 
+import { wpCustomizeComments } from "./snippets/wp-customize-comment-fields.js";
+import { wpListPostCptCategories } from "./snippets/wp-list-post-cpt-categories.js";
+import { gutenbergResizableBar } from "./snippets/wp-gutenberg-resizable-sidebar.js";
+import { overrideAcfWysiwygColors } from "./snippets/wp-override-acf-wysiwyg-colors.js";
+
 
 
 // add snippet into the array
@@ -34,7 +38,11 @@ let allSnippets = [
   registerAcfBlockTemplate,
   wpGetAllCpt,
   wpChangeLoginLogo,
-  wpBlogSearchArchiveShortcodes 
+  wpBlogSearchArchiveShortcodes,
+  wpCustomizeComments,
+  wpListPostCptCategories,
+  gutenbergResizableBar,
+  overrideAcfWysiwygColors
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
