@@ -9,6 +9,12 @@ import { jsGetPrevNextSibling } from "./snippets/js-get-previous-next-sibling.js
 import { jsCopyToClipboard } from "./snippets/js-copy-text-to-clipboard.js";
 import { wpLoadArchivePlugin } from "./snippets/wp-plugin-add-archive-templatephp.js";
 import { npmDropboxIgnoreNodeModules } from "./snippets/npm-dropbox-ignore-node-modules.js";
+import { gutAcfColorRadios } from "./snippets/wp-acf-radio-color-picker.js";
+import { registerAcfBlockTemplate } from "./snippets/wp-registrer-ACF-block-template.js";
+import { wpGetAllCpt } from "./snippets/wp-get-all-registered-cpt.js";
+import { wpChangeLoginLogo } from "./snippets/wp-change-Login-logo-and-link-URL.js";
+import { wpBlogSearchArchiveShortcodes } from "./snippets/wp-create-blog-search-archive-loop-shortcodes.js";
+ 
 
 
 // add snippet into the array
@@ -23,7 +29,12 @@ let allSnippets = [
   jsGetPrevNextSibling,
   jsCopyToClipboard,
   wpLoadArchivePlugin,
-  npmDropboxIgnoreNodeModules
+  npmDropboxIgnoreNodeModules,
+  gutAcfColorRadios,
+  registerAcfBlockTemplate,
+  wpGetAllCpt,
+  wpChangeLoginLogo,
+  wpBlogSearchArchiveShortcodes 
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
@@ -31,6 +42,10 @@ let snippetNames = [];
 
 // create snippet categories
 let snippetCategories = [];
+
+// start tab counter
+let tabsCounter = 0;
+
 
 
 // build snippets into the DOM
@@ -74,7 +89,7 @@ for (let i = 0; i < allSnippets.length; i++) {
 
   const snippetdetailsCats = document.createElement('div');
   snippetdetailsCats.classList.add('categories');
-  const snippetdetailsCatsText = document.createTextNode(snippetCats.join(' '));
+  const snippetdetailsCatsText = document.createTextNode(snippetCats.join(', '));
   snippetdetailsCats.appendChild(snippetdetailsCatsText);
 
   const snippetdetailsName = document.createElement('h2');
@@ -90,7 +105,23 @@ for (let i = 0; i < allSnippets.length; i++) {
   // snippet code
   const snippetCodeContainer = document.createElement('div');
   snippetCodeContainer.classList.add('code');
-  snippetCodeContainer.innerHTML = theSnippet;
+  const snippetPreTag = document.createElement('pre');
+  const snippetCodeTag = document.createElement('code');
+  snippetCodeTag.setAttribute('data-language', snippetLanguage);
+
+  // if is single snippet or multiple
+  if(typeof theSnippet === 'string'){
+    snippetCodeTag.innerHTML = theSnippet;
+    snippetPreTag.appendChild(snippetCodeTag);
+    snippetCodeContainer.appendChild(snippetPreTag);
+  } else {
+    const [tabBtnsContainer, tabsContainer] = buildTabs(theSnippet, snippetLanguage);
+    // snippetCodeContainer.appendChild(buildTabs(theSnippet));
+    snippetCodeContainer.appendChild(tabBtnsContainer);
+    snippetCodeContainer.appendChild(tabsContainer);
+  }
+
+  
 
 
   // now append details to the snippet container
@@ -193,3 +224,68 @@ const autoCompleteJS = new autoComplete({
     });
 
 });
+
+
+function buildTabs(snippet, language){
+  // loop and get all tabNames
+  const tabBtnsContainer = document.createElement('ul');
+  const tabsContainer = document.createElement('div');
+  tabBtnsContainer.classList.add('tab-btns', 'flex', 'px-10', 'gap-8');  
+  for (let i = 0; i < snippet.length; i++) {
+    // create tabs elemens with ul li and button
+    const tabsLiContainer = document.createElement('li');
+    const tabBtn = document.createElement('button');
+    tabBtn.classList.add('py-4');
+    if(i == 0){
+      tabBtn.classList.add('font-bold');
+    }
+    tabBtn.setAttribute('data-tab-content', 'tab-' + tabsCounter);
+    tabBtn.textContent = snippet[i].tabName;
+    tabsLiContainer.appendChild(tabBtn);
+    tabBtnsContainer.appendChild(tabsLiContainer);
+    
+    // create tab content
+    const snippetPreTag = document.createElement('pre');
+    
+    snippetPreTag.classList.add('tab-container');
+    //add class hidden to all items except the first one
+    if(i > 0){
+      snippetPreTag.classList.add('hidden');
+    }
+    const snippetCodeTag = document.createElement('code');
+    snippetCodeTag.setAttribute('data-language', language);
+    snippetCodeTag.innerHTML = snippet[i].content;
+    snippetPreTag.appendChild(snippetCodeTag);
+    snippetPreTag.setAttribute('id', 'tab-' + tabsCounter);
+    tabsContainer.appendChild(snippetPreTag);
+    tabsCounter++;
+  }
+  return [tabBtnsContainer, tabsContainer];
+}
+
+// create tabs functionality
+function initTabs() {
+  const tabButtons = document.querySelectorAll('.tab-btns button');
+  const tabContent = document.querySelectorAll('.tab-container');
+
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      tabButtons.forEach(btn => {
+        btn.classList.remove('font-bold');
+      });
+      button.classList.add('font-bold');
+
+      
+      const target = button.getAttribute('data-tab-content');
+      tabContent.forEach(tab => {
+        tab.classList.add('hidden');
+        if (tab.getAttribute('id') === target) {
+          tab.classList.remove('hidden');
+        }
+      });
+    });
+  });
+}
+
+initTabs();

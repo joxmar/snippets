@@ -2,7 +2,7 @@ export const gutBlocksToDisplay= {
 name : "Select blocks to display",
 cats : ['PHP', 'Wordpress'],
 language : "php",
-snippet : `<pre><code data-language="javascript">
+snippet : `
 &lt;?php
 add_filter( 'allowed_block_types_all', 'rt_allowed_block_types', 25, 2 );
  

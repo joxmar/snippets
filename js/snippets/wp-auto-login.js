@@ -2,7 +2,7 @@ export const autoLogin = {
 name : "Automatic Login",
 cats : ['PHP', 'Wordpress'],
 language : "php",
-snippet : `<pre><code data-language="javascript">
+snippet : `
 &lt;?php
 /*
 Plugin Name: Auto Login

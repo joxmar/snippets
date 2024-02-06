@@ -1,17 +1,23 @@
 export const wpLoadArchivePlugin = {
-name : "Load custom post type archive template from plugin",
+name : "Load custom post type archive, category and single templates from plugin",
 cats : ['PHP', 'Wordpress'],
 language : "php",
-snippet : `<pre><code data-language="javascript">
+snippet : `
 &lt;?php
-function get_cpt_archive_template( $archive_template ) {
-  global $post;
-  if ( is_archive() && get_post_type($post) == 'custom_post' ) {
-       $archive_template = plugin_dir_path( __FILE__ ) . 'archive-cpt.php';
-  }
-  return $archive_template;
+function load_custom_event_templates( $template ) {
+	if ( is_post_type_archive( 'events' ) && file_exists( plugin_dir_path( __FILE__ ) . 'templates/archive-events.php' ) ) {
+		$template = plugin_dir_path( __FILE__ ) . 'templates/archive-events.php';
+	}
+	if ( is_tax( 'events_categories' ) && file_exists( plugin_dir_path( __FILE__ ) . 'templates/category-events.php' ) ) {
+		$template = plugin_dir_path( __FILE__ ) . 'templates/category-events.php';
+	}
+
+	if ( is_singular( 'events' ) && file_exists( plugin_dir_path( __FILE__ ) . 'templates/single-events.php' ) ) {
+		$template = plugin_dir_path( __FILE__ ) . 'templates/single-events.php';
+	}
+	return $template;
 }
-add_filter( 'archive_template', 'get_cpt_archive_template' );
-?&gt;
-</code></pre>`
+add_filter( 'archive_template', 'load_custom_event_templates' );
+add_filter( 'single_template', 'load_custom_event_templates' );
+`
 }

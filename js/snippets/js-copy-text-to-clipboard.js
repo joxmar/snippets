@@ -2,7 +2,7 @@ export const jsCopyToClipboard = {
 name : "Copy Text To Clipboard",
 cats : ['javascript'],
 language : "Javascript",
-snippet : `<pre><code data-language="javascript">
+snippet : `
 function CopyToClipboard(id){
   var r = document.createRange();
   r.selectNode(document.getElementById(id));
@@ -11,5 +11,5 @@ function CopyToClipboard(id){
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
 }
-</code></pre>`
+`
 }

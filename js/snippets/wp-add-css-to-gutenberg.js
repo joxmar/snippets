@@ -2,7 +2,7 @@ export const gutenAddCSS = {
 name : "Add stylesheets to Gutenberg and front end",
 cats : ['PHP', 'Wordpress'],
 language : "php",
-snippet : `<pre><code data-language="javascript">
+snippet : `
 &lt;?php
 // Gutenberg work editor stylesheet
 add_theme_support('editor-styles');
@@ -42,5 +42,5 @@ function enqueue_frontend_assets(){
         wp_enqueue_style( 'style-posttype', get_theme_file_uri() . 'work-editor-styles.css' );
     }
 }
-              </code></pre>`
+              `
 }
