@@ -94,7 +94,7 @@ code::-webkit-scrollbar-thumb {
 
 .copy-snippet:after {
   content: '';
-  background: url('/images/copy_icon.svg') no-repeat;
+  background: url('../images/copy_icon.svg') no-repeat;
   background-size: contain;
   width: 15px;
   height: 15px;
