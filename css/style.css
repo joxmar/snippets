@@ -73,3 +73,30 @@ code::-webkit-scrollbar-thumb {
   color: #23192D !important;
   border-color: #FD0A54;
 }
+
+.copy-snippet {
+  cursor: pointer;
+  background-color: #FD0A54;
+  color: white;
+  font-size: .75rem;
+  margin: 0 0.5rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.copy-snippet:hover {
+  background-color: #F57576;
+}
+
+.copy-snippet:after {
+  content: '';
+  background: url('/images/copy_icon.svg') no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}

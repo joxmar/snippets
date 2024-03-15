@@ -116,13 +116,19 @@ for (let i = 0; i < allSnippets.length; i++) {
   const snippetCodeContainer = document.createElement('div');
   snippetCodeContainer.classList.add('code');
   const snippetPreTag = document.createElement('pre');
+  snippetPreTag.classList.add('relative');
   const snippetCodeTag = document.createElement('code');
   snippetCodeTag.setAttribute('data-language', snippetLanguage);
+  const copySnippetBtn = document.createElement('button');
+  copySnippetBtn.classList.add('copy-snippet', 'rounded-md', 'py-2', 'px-4');
+  copySnippetBtn.textContent = 'Copy';
 
   // if is single snippet or multiple
   if(typeof theSnippet === 'string'){
     snippetCodeTag.innerHTML = theSnippet;
     snippetPreTag.appendChild(snippetCodeTag);
+    snippetPreTag.appendChild(copySnippetBtn);
+
     snippetCodeContainer.appendChild(snippetPreTag);
   } else {
     const [tabBtnsContainer, tabsContainer] = buildTabs(theSnippet, snippetLanguage);
@@ -130,6 +136,7 @@ for (let i = 0; i < allSnippets.length; i++) {
     snippetCodeContainer.appendChild(tabBtnsContainer);
     snippetCodeContainer.appendChild(tabsContainer);
   }
+
 
   
 
@@ -140,8 +147,8 @@ for (let i = 0; i < allSnippets.length; i++) {
 
   // and finally to the main container on the DOM
   snippetsContainer.appendChild(snippetContainer);
-  
 }
+
 
 
 
@@ -299,3 +306,28 @@ function initTabs() {
 }
 
 initTabs();
+
+function copySnippetFunction(){
+  const copySnippetBtns = document.querySelectorAll('.copy-snippet');
+  copySnippetBtns.forEach(btn => {
+    btn.addEventListener('click', function(){          
+      let codeContainer = this.previousElementSibling;
+      var r = document.createRange();
+      r.selectNode(codeContainer);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(r);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+
+      setTimeout(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+        }, 1000);
+      }
+      , 100);
+    });
+  });
+}
+
+window.onload = copySnippetFunction;
