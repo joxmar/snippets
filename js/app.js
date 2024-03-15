@@ -18,6 +18,7 @@ import { wpCustomizeComments } from "./snippets/wp-customize-comment-fields.js";
 import { wpListPostCptCategories } from "./snippets/wp-list-post-cpt-categories.js";
 import { gutenbergResizableBar } from "./snippets/wp-gutenberg-resizable-sidebar.js";
 import { overrideAcfWysiwygColors } from "./snippets/wp-override-acf-wysiwyg-colors.js";
+import { wpAcfLink } from "./snippets/wp-acf-links.js";
 
 
 
@@ -42,7 +43,8 @@ let allSnippets = [
   wpCustomizeComments,
   wpListPostCptCategories,
   gutenbergResizableBar,
-  overrideAcfWysiwygColors
+  overrideAcfWysiwygColors,
+  wpAcfLink
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
