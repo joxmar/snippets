@@ -4,7 +4,7 @@ cats : ['wordpress', 'ACF'],
 language : "php",
 snippet : `
 &lt;?php 
-  $link = get_sub_field('field_name');
+  $link = get_field('field_name'); // or get_sub_field()
   if( $link ): 
     $link_url = $link['url'];
     $link_title = $link['title'];
