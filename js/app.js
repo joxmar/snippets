@@ -19,7 +19,7 @@ import { wpListPostCptCategories } from "./snippets/wp-list-post-cpt-categories.
 import { gutenbergResizableBar } from "./snippets/wp-gutenberg-resizable-sidebar.js";
 import { overrideAcfWysiwygColors } from "./snippets/wp-override-acf-wysiwyg-colors.js";
 import { wpAcfLink } from "./snippets/wp-acf-links.js";
-
+import { updateArrays } from "./snippets/js-updating-arrays.js";
 
 
 // add snippet into the array
@@ -44,7 +44,8 @@ let allSnippets = [
   wpListPostCptCategories,
   gutenbergResizableBar,
   overrideAcfWysiwygColors,
-  wpAcfLink
+  wpAcfLink,
+  updateArrays
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
