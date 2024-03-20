@@ -3,8 +3,8 @@ export const updateArrays = {
   cats : ['javascript'],
   language : "javascript",
   snippet : `
-  // Add value at the end of the array
-  const names = ['Nancy','Emily','Alina','Astro'];
+// Add value at the end of the array
+const names = ['Nancy','Emily','Alina','Astro'];
 names.push('Cosmo'); 
 console.log(names); 
 // returns ['Nancy', 'Emily', 'Alina', 'Astro', 'Cosmo']
