@@ -1,7 +1,7 @@
 export const updateArrays = {
   name : "arrays: add, remove and update",
   cats : ['javascript'],
-  language : "javascript",
+  language : "Javascript",
   snippet : `
 // Add value at the end of the array
 const names = ['Nancy','Emily','Alina','Astro'];
