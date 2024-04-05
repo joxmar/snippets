@@ -21,6 +21,9 @@ import { overrideAcfWysiwygColors } from "./snippets/wp-override-acf-wysiwyg-col
 import { wpAcfLink } from "./snippets/wp-acf-links.js";
 import { updateArrays } from "./snippets/js-updating-arrays.js";
 import { jsforloop } from "./snippets/js-for-loop.js";
+import { jsWhileLoop } from "./snippets/js-while-loop.js";
+
+
 
 
 
@@ -48,7 +51,8 @@ let allSnippets = [
   overrideAcfWysiwygColors,
   wpAcfLink,
   updateArrays,
-  jsforloop
+  jsforloop,
+  jsWhileLoop
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
@@ -241,7 +245,7 @@ const autoCompleteJS = new autoComplete({
   let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
     window.scrollTo({
          top: offsetPosition,
-         behavior: "smooth"
+        //  behavior: "smooth"
     });
 
 });
