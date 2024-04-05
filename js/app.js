@@ -264,6 +264,9 @@ function buildTabs(snippet, language){
     tabBtn.textContent = snippet[i].tabName;
     tabsLiContainer.appendChild(tabBtn);
     tabBtnsContainer.appendChild(tabsLiContainer);
+    const copySnippetBtn = document.createElement('button');
+    copySnippetBtn.classList.add('copy-snippet', 'rounded-md', 'py-2', 'px-4');
+    copySnippetBtn.textContent = 'Copy';
     
     // create tab content
     const snippetPreTag = document.createElement('pre');
@@ -277,6 +280,7 @@ function buildTabs(snippet, language){
     snippetCodeTag.setAttribute('data-language', language);
     snippetCodeTag.innerHTML = snippet[i].content;
     snippetPreTag.appendChild(snippetCodeTag);
+    snippetPreTag.appendChild(copySnippetBtn);
     snippetPreTag.setAttribute('id', 'tab-' + tabsCounter);
     tabsContainer.appendChild(snippetPreTag);
     tabsCounter++;
