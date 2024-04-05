@@ -20,7 +20,7 @@ import { gutenbergResizableBar } from "./snippets/wp-gutenberg-resizable-sidebar
 import { overrideAcfWysiwygColors } from "./snippets/wp-override-acf-wysiwyg-colors.js";
 import { wpAcfLink } from "./snippets/wp-acf-links.js";
 import { updateArrays } from "./snippets/js-updating-arrays.js";
-import { jsforloop } from "./snippets/js-updating-arrays.js";
+import { jsforloop } from "./snippets/js-for-loop.js";
 
 
 
