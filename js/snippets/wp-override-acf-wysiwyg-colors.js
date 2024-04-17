@@ -1,6 +1,6 @@
 export const overrideAcfWysiwygColors = {
 name : "Override Wordpress ACF WYSIWYG Colors",
-cats : ['php', 'wordpress'],
+cats : ['php', 'wordpress', 'acf'],
 language : "php",
 snippet : `
 &lt;?php

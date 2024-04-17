@@ -1,6 +1,6 @@
 export const gutAcfColorRadios = {
 name : "ACF Create Gutenberg-Like color picker with radios",
-cats : ['PHP', 'Wordpress'],
+cats : ['PHP', 'Wordpress', 'ACF'],
 language : "php",
 snippet : `
 //based on https://whiteleydesigns.com/acf-gutenberg-color-picker/

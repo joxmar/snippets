@@ -1,6 +1,6 @@
 export const registerAcfBlockTemplate = {
 name : "registrer ACF field group, block and, template in 1 file",
-cats : ['php', 'wordpress'],
+cats : ['php', 'wordpress', 'acf'],
 language : "php",
 snippet : [
   {
