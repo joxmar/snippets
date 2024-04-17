@@ -22,6 +22,7 @@ import { wpAcfLink } from "./snippets/wp-acf-links.js";
 import { updateArrays } from "./snippets/js-updating-arrays.js";
 import { jsforloop } from "./snippets/js-for-loop.js";
 import { jsWhileLoop } from "./snippets/js-while-loop.js";
+import { diviFormSenderEmail } from "./snippets/wp-divi-change-form-sender.js";
 
 
 
@@ -52,7 +53,8 @@ let allSnippets = [
   wpAcfLink,
   updateArrays,
   jsforloop,
-  jsWhileLoop
+  jsWhileLoop,
+  diviFormSenderEmail
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
