@@ -1,5 +1,5 @@
 export const diviFormSenderEmail = {
-name : "snippet name, make sure it has serchable keywords",
+name : "Change Form Sender Email in Divi",
 cats : ['wordpress', 'divi'],
 language : "php",
 snippet : `
