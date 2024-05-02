@@ -31,12 +31,15 @@ export const phpAjaxImgUploader = {
       ajax.send(formdata);
     }
     function progressHandler(event){
+      if(event.total > 1000000){
+        return;
+      }
       document.getElementById("upload_status").innerHTML = "Upload Progress: " + event.loaded + " / " + event.total;
     }
-    function completeHandler(event){            
-      console.log(event.target.responseText);            
+    function completeHandler(event){                       
       if(event.target.responseText.includes("error")){
-        alert("You cannot upload files of this type!");        
+        var response = JSON.parse(event.target.responseText);      
+        alert(response.error);        
       } else {
         var response = JSON.parse(event.target.responseText);      
         document.getElementById("upload_status").innerHTML = "Upload Complete";
@@ -66,7 +69,7 @@ export const phpAjaxImgUploader = {
     $fileExt = explode('.', $fileName);
     $fileActualExt = strtolower(end($fileExt));
     
-    $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+    $allowed = array('jpg', 'jpeg', 'png');
     
     if(in_array($fileActualExt, $allowed)){
       if($fileError === 0){
@@ -76,14 +79,14 @@ export const phpAjaxImgUploader = {
           move_uploaded_file($fileTmpName, $fileDestination);
           // echo out a JSON response with the file location
           echo json_encode(['fileLocation' => $fileDestination]);
-        }else{
-          echo "Your file is too big!";
+        }else{              
+          echo json_encode(['error' => "Your file is too big!"]);
         }
-      }else{
-        echo "There was an error uploading your file!";
+      }else{     
+        echo json_encode(['error' => "There was an error uploading your file!"]);    
       }
     }else{
-      echo json_encode(['error' => 'You cannot upload files of this type!']); 
+      echo json_encode(['error' => 'You cannot upload files of this type!']);    
     }
   }
       `,
