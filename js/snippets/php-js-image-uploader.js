@@ -20,6 +20,8 @@ export const phpAjaxImgUploader = {
       var file = document.getElementById("file").files[0];
       var formdata = new FormData();
       formdata.append("file", file);
+
+
       var ajax = new XMLHttpRequest();
       ajax.upload.addEventListener("progress", progressHandler, false);
       ajax.addEventListener("load", completeHandler, false);
@@ -31,11 +33,16 @@ export const phpAjaxImgUploader = {
     function progressHandler(event){
       document.getElementById("upload_status").innerHTML = "Upload Progress: " + event.loaded + " / " + event.total;
     }
-    function completeHandler(event){
-      console.log(event.target.responseText);
-      var response = JSON.parse(event.target.responseText);      
-      document.getElementById("upload_status").innerHTML = "Upload Complete";
-      document.getElementById("uploaded_image").src = site_url + response.fileLocation;
+    function completeHandler(event){            
+      console.log(event.target.responseText);            
+      if(event.target.responseText.includes("error")){
+        alert("You cannot upload files of this type!");        
+      } else {
+        var response = JSON.parse(event.target.responseText);      
+        document.getElementById("upload_status").innerHTML = "Upload Complete";
+        document.getElementById("uploaded_image").src = site_url + response.fileLocation;
+      }
+      
     }
     function errorHandler(event){
       document.getElementById("upload_status").innerHTML = "Upload Failed";
@@ -48,37 +55,37 @@ export const phpAjaxImgUploader = {
     {
       tabName: 'uploader.php',
       content: `
-      if(isset($_FILES['file'])){
-        $file = $_FILES['file'];
-        $fileName = $_FILES['file']['name'];
-        $fileTmpName = $_FILES['file']['tmp_name'];
-        $fileSize = $_FILES['file']['size'];
-        $fileError = $_FILES['file']['error'];
-        $fileType = $_FILES['file']['type'];
-        
-        $fileExt = explode('.', $fileName);
-        $fileActualExt = strtolower(end($fileExt));
-        
-        $allowed = array('jpg', 'jpeg', 'png', 'pdf');
-        
-        if(in_array($fileActualExt, $allowed)){
-          if($fileError === 0){
-            if($fileSize < 1000000){
-              $fileNameNew = uniqid('', true).".".$fileActualExt;
-              $fileDestination = 'uploads/'.$fileNameNew;
-              move_uploaded_file($fileTmpName, $fileDestination);
-              // echo out a JSON response with the file location
-              echo json_encode(['fileLocation' => $fileDestination]);
-            }else{
-              echo "Your file is too big!";
-            }
-          }else{
-            echo "There was an error uploading your file!";
-          }
+  if(isset($_FILES['file'])){
+    $file = $_FILES['file'];
+    $fileName = $_FILES['file']['name'];
+    $fileTmpName = $_FILES['file']['tmp_name'];
+    $fileSize = $_FILES['file']['size'];
+    $fileError = $_FILES['file']['error'];
+    $fileType = $_FILES['file']['type'];
+    
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    
+    $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+    
+    if(in_array($fileActualExt, $allowed)){
+      if($fileError === 0){
+        if($fileSize < 1000000){
+          $fileNameNew = uniqid('', true).".".$fileActualExt;
+          $fileDestination = 'uploads/'.$fileNameNew;
+          move_uploaded_file($fileTmpName, $fileDestination);
+          // echo out a JSON response with the file location
+          echo json_encode(['fileLocation' => $fileDestination]);
         }else{
-          echo "You cannot upload files of this type!";
+          echo "Your file is too big!";
         }
+      }else{
+        echo "There was an error uploading your file!";
       }
+    }else{
+      echo json_encode(['error' => 'You cannot upload files of this type!']); 
+    }
+  }
       `,
     },
   ],
