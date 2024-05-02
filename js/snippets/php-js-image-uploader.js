@@ -1,13 +1,13 @@
 export const phpAjaxImgUploader = {
   name: 'Upload images to server using AJAX and PHP',
   cats: ['javascript', 'php', 'ajax'],
-  language: 'html',
+  language: 'php',
   snippet: [
     {
       tabName: 'index.php',
       content: `
-      <!-- make sure to create the uploads folder first! -->
-      <form id="upload_form" enctype="multipart/form-data">
+  <!-- make sure to create the uploads folder first! -->
+  <form id="upload_form" enctype="multipart/form-data">
     <input type="file" name="file" id="file">
     <input type="button" value="Upload File" onclick="uploadFile()">
   </form>
