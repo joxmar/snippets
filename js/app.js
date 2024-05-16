@@ -24,6 +24,7 @@ import { jsforloop } from './snippets/js-for-loop.js';
 import { jsWhileLoop } from './snippets/js-while-loop.js';
 import { diviFormSenderEmail } from './snippets/wp-divi-change-form-sender.js';
 import { phpAjaxImgUploader } from './snippets/php-js-image-uploader.js';
+import { wpAcfImg } from './snippets/wp-acf-image-field.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -53,6 +54,7 @@ let allSnippets = [
   jsWhileLoop,
   diviFormSenderEmail,
   phpAjaxImgUploader,
+  wpAcfImg,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
