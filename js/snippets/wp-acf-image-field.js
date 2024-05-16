@@ -3,9 +3,9 @@ export const wpAcfImg = {
   cats: ['wordpress', 'acf', 'php'],
   language: 'php',
   snippet: `
-<?php if (get_field('image_field')):
-  $image = get_field('image_field'); ?>
-<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>">
-<?php endif; ?>
+&lt;?php if (get_field('image_field')):
+  $image = get_field('image_field'); ?&gt;
+<img src="&lt;?php echo $image['sizes']['medium']; ?&gt;" alt="&lt;?php echo $image['alt']; ?&gt;">
+&lt;?php endif; ?&gt;
 `,
 };
