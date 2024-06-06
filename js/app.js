@@ -26,6 +26,7 @@ import { diviFormSenderEmail } from './snippets/wp-divi-change-form-sender.js';
 import { phpAjaxImgUploader } from './snippets/php-js-image-uploader.js';
 import { wpAcfImg } from './snippets/wp-acf-image-field.js';
 import { jsParallax } from './snippets/js-simple-parallax-effect.js';
+import { cssAnimateSvgStroke } from './snippets/css-animate-svg-stroke.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -57,6 +58,7 @@ let allSnippets = [
   phpAjaxImgUploader,
   wpAcfImg,
   jsParallax,
+  cssAnimateSvgStroke,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
