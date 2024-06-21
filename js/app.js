@@ -27,6 +27,7 @@ import { phpAjaxImgUploader } from './snippets/php-js-image-uploader.js';
 import { wpAcfImg } from './snippets/wp-acf-image-field.js';
 import { jsParallax } from './snippets/js-simple-parallax-effect.js';
 import { cssAnimateSvgStroke } from './snippets/css-animate-svg-stroke.js';
+import { wpApiAccessLogin } from './snippets/wp-api-access-w-credentials.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -59,6 +60,7 @@ let allSnippets = [
   wpAcfImg,
   jsParallax,
   cssAnimateSvgStroke,
+  wpApiAccessLogin,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
