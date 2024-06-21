@@ -21,9 +21,8 @@ curl_close($ch);
 
 $users = json_decode($output);
 
-echo '<pre>';
 print_r($users);
-echo '</pre>';
+
 ?&gt;
 `,
 };
