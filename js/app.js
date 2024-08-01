@@ -64,7 +64,6 @@ let allSnippets = [
   cssAnimateSvgStroke,
   wpApiAccessLogin,
   acfFrontendForm,
-  ,
   wpUploadMultipleCategories,
 ];
 
