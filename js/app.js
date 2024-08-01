@@ -29,6 +29,7 @@ import { jsParallax } from './snippets/js-simple-parallax-effect.js';
 import { cssAnimateSvgStroke } from './snippets/css-animate-svg-stroke.js';
 import { wpApiAccessLogin } from './snippets/wp-api-access-w-credentials.js';
 import { acfFrontendForm } from './snippets/wp-acf-front-end-form.js';
+import { wpUploadMultipleCategories } from './snippets/wp-create-multiple-categories.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -63,6 +64,8 @@ let allSnippets = [
   cssAnimateSvgStroke,
   wpApiAccessLogin,
   acfFrontendForm,
+  ,
+  wpUploadMultipleCategories,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
