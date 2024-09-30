@@ -31,6 +31,7 @@ import { wpApiAccessLogin } from './snippets/wp-api-access-w-credentials.js';
 import { acfFrontendForm } from './snippets/wp-acf-front-end-form.js';
 import { wpUploadMultipleCategories } from './snippets/wp-create-multiple-categories.js';
 import { wpSearchQueries } from './snippets/wp-search-forms.js';
+import { cssDynamicNumbering } from './snippets/css-ul-dynamic-numbering-counter.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -67,6 +68,7 @@ let allSnippets = [
   acfFrontendForm,
   wpUploadMultipleCategories,
   wpSearchQueries,
+  cssDynamicNumbering,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
