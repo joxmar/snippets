@@ -156,7 +156,6 @@ for (let i = 0; i < allSnippets.length; i++) {
       theSnippet,
       snippetLanguage
     );
-    // snippetCodeContainer.appendChild(buildTabs(theSnippet));
     snippetCodeContainer.appendChild(tabBtnsContainer);
     snippetCodeContainer.appendChild(tabsContainer);
   }
@@ -266,6 +265,7 @@ function buildTabs(snippet, language) {
   // loop and get all tabNames
   const tabBtnsContainer = document.createElement('ul');
   const tabsContainer = document.createElement('div');
+  tabsContainer.classList.add('tabs-container');
   tabBtnsContainer.classList.add('tab-btns', 'flex', 'px-10', 'gap-8');
   for (let i = 0; i < snippet.length; i++) {
     // create tabs elemens with ul li and button
@@ -310,13 +310,20 @@ function initTabs() {
 
   tabButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      tabButtons.forEach((btn) => {
+      // we should only focus on the buttons in the same container
+      const parentLi = button.parentNode;
+      const parentUl = parentLi.parentNode;
+      const siblingTabsContainer = parentUl.nextElementSibling;
+
+      // remove bold from all buttons inside parentUl
+      parentUl.querySelectorAll('button').forEach((btn) => {
         btn.classList.remove('font-bold');
       });
+
       button.classList.add('font-bold');
 
       const target = button.getAttribute('data-tab-content');
-      tabContent.forEach((tab) => {
+      siblingTabsContainer.querySelectorAll('.tab-container').forEach((tab) => {
         tab.classList.add('hidden');
         if (tab.getAttribute('id') === target) {
           tab.classList.remove('hidden');
