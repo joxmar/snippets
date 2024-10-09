@@ -292,7 +292,7 @@ function buildTabs(snippet, language) {
       snippetPreTag.classList.add('hidden');
     }
     const snippetCodeTag = document.createElement('code');
-    snippetCodeTag.setAttribute('data-language', language);
+    snippetCodeTag.setAttribute('data-language', snippet[i].language);
     snippetCodeTag.innerHTML = snippet[i].content;
     snippetPreTag.appendChild(snippetCodeTag);
     snippetPreTag.appendChild(copySnippetBtn);

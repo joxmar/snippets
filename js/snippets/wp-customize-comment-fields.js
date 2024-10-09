@@ -1,11 +1,12 @@
 export const wpCustomizeComments = {
-name : "Add or customize Wordpress comment fields",
-cats : ['php', 'wordpress'],
-language : "php",
-snippet : [
-  {
-    tabName : 'functions.php',
-    content: `
+  name: 'Add or customize Wordpress comment fields',
+  cats: ['php', 'wordpress'],
+  language: 'php',
+  snippet: [
+    {
+      language: 'php',
+      tabName: 'functions.php',
+      content: `
     // custom comments
     // Modify comment form fields and add new field
     function custom_comment_form_fields( $fields ) {
@@ -42,11 +43,12 @@ snippet : [
       $defaults['label_submit'] = __( 'Send Feedback', 'textdomain' );
       return $defaults;
     }
-    add_filter( 'comment_form_defaults', 'custom_comment_form_defaults' );`
-  },
-  {
-    tabName : 'comments.php',
-    content: `&lt;?php
+    add_filter( 'comment_form_defaults', 'custom_comment_form_defaults' );`,
+    },
+    {
+      language: 'php',
+      tabName: 'comments.php',
+      content: `&lt;?php
 
     // Display comments with custom format
     function custom_comment_display( $comment, $args, $depth ) {
@@ -89,14 +91,15 @@ snippet : [
     
     &lt;?php
     comment_form();
-    ?&gt;`
-  },
-  {
-    tabName : 'page.php',
-    content: `
+    ?&gt;`,
+    },
+    {
+      language: 'php',
+      tabName: 'page.php',
+      content: `
     //include commnets in page
     comments_template();
-    `
-  }
-]
-}
+    `,
+    },
+  ],
+};

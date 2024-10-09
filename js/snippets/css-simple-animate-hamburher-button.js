@@ -4,6 +4,7 @@ export const hamburgerBtn = {
   language: 'html',
   snippet: [
     {
+      language: 'html',
       tabName: 'HTML',
       content: `
 <button class="mobile-menu">
@@ -14,6 +15,7 @@ export const hamburgerBtn = {
       `,
     },
     {
+      language: 'css',
       tabName: 'CSS',
       content: `
 /* Hamburger btn */
@@ -91,6 +93,7 @@ export const hamburgerBtn = {
       `,
     },
     {
+      language: 'javascript',
       tabName: 'Javascript',
       content: `
 jQuery('.mobile-menu').on('click', function () {

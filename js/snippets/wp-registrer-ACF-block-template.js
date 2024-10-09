@@ -1,11 +1,12 @@
 export const registerAcfBlockTemplate = {
-name : "registrer ACF field group, block and, template in 1 file",
-cats : ['php', 'wordpress', 'acf'],
-language : "php",
-snippet : [
-  {
-    tabName : 'functions.php',
-    content: `
+  name: 'registrer ACF field group, block and, template in 1 file',
+  cats: ['php', 'wordpress', 'acf'],
+  language: 'php',
+  snippet: [
+    {
+      language: 'php',
+      tabName: 'functions.php',
+      content: `
     if (function_exists('acf_register_block_type')) {            
       add_action('acf/init', 'register_acf_block_types');      
     }
@@ -13,11 +14,12 @@ snippet : [
     function register_acf_block_types(){      
       require_once get_template_directory() . '/path/to/wp-acf-register-field-block-template.php';
     }
-    `
-  },
-  {
-    tabName : 'wp-acf-register-field-block-template.php',
-    content: `
+    `,
+    },
+    {
+      language: 'php',
+      tabName: 'wp-acf-register-field-block-template.php',
+      content: `
     &lt;?php
 
     acf_add_local_field_group( array(
@@ -181,7 +183,7 @@ snippet : [
           &lt;?php
         endif;
       }
-    }`
-  }
-]
-}
+    }`,
+    },
+  ],
+};

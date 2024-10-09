@@ -4,6 +4,7 @@ export const phpAjaxImgUploader = {
   language: 'php',
   snippet: [
     {
+      language: 'php',
       tabName: 'index.php',
       content: `
   <!-- make sure to create the uploads folder first! -->
@@ -56,6 +57,7 @@ export const phpAjaxImgUploader = {
   </script>`,
     },
     {
+      language: 'php',
       tabName: 'uploader.php',
       content: `
   if(isset($_FILES['file'])){
