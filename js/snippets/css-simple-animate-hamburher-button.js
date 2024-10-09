@@ -96,6 +96,14 @@ export const hamburgerBtn = {
       language: 'javascript',
       tabName: 'Javascript',
       content: `
+// Vanilla JS
+document.querySelector('.mobile-menu').addEventListener('click', function () {
+  this.classList.toggle('close-nav');
+
+  // your code here
+});
+
+//jQuery
 jQuery('.mobile-menu').on('click', function () {
   jQuery(this).toggleClass('close-nav');
   
