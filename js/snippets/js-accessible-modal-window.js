@@ -67,6 +67,18 @@ export const accessibleModalWindow = {
   transform: translate(-50%, -50%) scale(0.8);
   opacity: 0;
 }
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
 `,
     },
     {
