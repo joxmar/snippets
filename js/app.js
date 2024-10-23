@@ -182,9 +182,13 @@ for (let i = 0; i < snippetCategories.length; i++) {
   const menuCategoryItemBtn = document.createElement('button');
   menuCategoryItemBtn.setAttribute('data-category-type', snippetCategories[i]);
   menuCategoryItemBtn.classList.add(
-    'text-bcolor-3',
-    'hover:text-bcolor-2',
-    'select-cat'
+    'text-white',
+    'hover:text-bcolor-1',
+    'select-cat',
+    'bg-bcolor-2',
+    'rounded-full',
+    'px-4',
+    'pb-1'
   );
 
   // create and add category text to button
