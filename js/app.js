@@ -34,6 +34,7 @@ import { wpSearchQueries } from './snippets/wp-search-forms.js';
 import { cssDynamicNumbering } from './snippets/css-ul-dynamic-numbering-counter.js';
 import { hamburgerBtn } from './snippets/css-simple-animate-hamburher-button.js';
 import { accessibleModalWindow } from './snippets/js-accessible-modal-window.js';
+import { wpQueryShortcode } from './snippets/wp-query-loop-shortcode.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -73,6 +74,7 @@ let allSnippets = [
   cssDynamicNumbering,
   hamburgerBtn,
   accessibleModalWindow,
+  wpQueryShortcode,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
