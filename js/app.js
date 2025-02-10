@@ -35,7 +35,8 @@ import { cssDynamicNumbering } from './snippets/css-ul-dynamic-numbering-counter
 import { hamburgerBtn } from './snippets/css-simple-animate-hamburher-button.js';
 import { accessibleModalWindow } from './snippets/js-accessible-modal-window.js';
 import { wpQueryShortcode } from './snippets/wp-query-loop-shortcode.js';
-
+import { snapApic } from './snippets/js-prompt-cell-camera-add-to-page.js';
+snapApic;
 // add snippet into the array
 let allSnippets = [
   gutenAddCSS,
@@ -75,6 +76,7 @@ let allSnippets = [
   hamburgerBtn,
   accessibleModalWindow,
   wpQueryShortcode,
+  snapApic,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
