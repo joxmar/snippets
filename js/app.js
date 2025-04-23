@@ -36,7 +36,9 @@ import { hamburgerBtn } from './snippets/css-simple-animate-hamburher-button.js'
 import { accessibleModalWindow } from './snippets/js-accessible-modal-window.js';
 import { wpQueryShortcode } from './snippets/wp-query-loop-shortcode.js';
 import { snapApic } from './snippets/js-prompt-cell-camera-add-to-page.js';
-snapApic;
+import { gitCommands } from './snippets/git-commands.js';
+import { gitBranches } from './snippets/git-branches.js';
+
 // add snippet into the array
 let allSnippets = [
   gutenAddCSS,
@@ -77,6 +79,8 @@ let allSnippets = [
   accessibleModalWindow,
   wpQueryShortcode,
   snapApic,
+  gitCommands,
+  gitBranches
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
