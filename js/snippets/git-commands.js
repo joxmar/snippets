@@ -31,5 +31,17 @@ git push origin master
 
 #add, commit and push short version
 git add . && git commit -m "message about updates" && git push origin master
+
+#################################
+# commit to a specific date
+#################################
+# First add the file(s) to the staging area
+git add .
+
+# Then commit with the desired date
+GIT_COMMITTER_DATE="2025-04-21T14:00:00" git commit --date="2025-04-21T14:00:00" -m "Your commit message"
+
+# Finally, push the commit to the remote repository
+git push origin master
 `,
 };
