@@ -38,6 +38,8 @@ import { wpQueryShortcode } from './snippets/wp-query-loop-shortcode.js';
 import { snapApic } from './snippets/js-prompt-cell-camera-add-to-page.js';
 import { gitCommands } from './snippets/git-commands.js';
 import { gitBranches } from './snippets/git-branches.js';
+import { jsDestructureArray } from './snippets/js-destructuring-arrays.js';
+
 
 // add snippet into the array
 let allSnippets = [
@@ -80,7 +82,8 @@ let allSnippets = [
   wpQueryShortcode,
   snapApic,
   gitCommands,
-  gitBranches
+  gitBranches,
+  jsDestructureArray
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
