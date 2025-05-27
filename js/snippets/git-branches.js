@@ -30,5 +30,15 @@ git pull origin master
 git merge your-branch-name 
 # push branch to remote
 git push origin master
+
+
+#################################
+# Deleting branches
+#################################
+For local branch:
+~ git branch -d <branch-name>
+
+For remote branch
+~ git push origin --delete <branch-name>
 `,
 };
