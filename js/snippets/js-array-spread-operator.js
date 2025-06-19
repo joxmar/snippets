@@ -3,6 +3,7 @@ export const jsSpreadOperator = {
   cats: ['javascript'],
   language: 'javascript',
   snippet: `
+  // Spread Operators unpack arrays or objects into individual elements.
   const spreadArr = [7, 8, 9];
   const spreadMe = [1, 2, ...spreadArr]; // [ 1, 2, 7, 8, 9 ]
   
