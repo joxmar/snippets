@@ -40,7 +40,7 @@ import { gitCommands } from './snippets/git-commands.js';
 import { gitBranches } from './snippets/git-branches.js';
 import { jsDestructureArray } from './snippets/js-destructuring-arrays.js';
 import { jsSpreadOperator } from './snippets/js-array-spread-operator.js';
-
+import { wpAcfEscapingSanitizing } from './snippets/wp-acf-escaping-sanitizing.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -85,7 +85,8 @@ let allSnippets = [
   gitCommands,
   gitBranches,
   jsDestructureArray,
-  jsSpreadOperator
+  jsSpreadOperator,
+  wpAcfEscapingSanitizing,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
