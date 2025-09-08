@@ -42,6 +42,7 @@ import { jsDestructureArray } from './snippets/js-destructuring-arrays.js';
 import { jsSpreadOperator } from './snippets/js-array-spread-operator.js';
 import { wpAcfEscapingSanitizing } from './snippets/wp-acf-escaping-sanitizing.js';
 import { cssOnlyTabs } from './snippets/css-only-tabs.js';
+import { htmlPageRefresh } from './snippets/html-simple-page-refresh.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -89,6 +90,7 @@ let allSnippets = [
   jsSpreadOperator,
   wpAcfEscapingSanitizing,
   cssOnlyTabs,
+  htmlPageRefresh,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
