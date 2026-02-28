@@ -43,6 +43,7 @@ import { jsSpreadOperator } from './snippets/js-array-spread-operator.js';
 import { wpAcfEscapingSanitizing } from './snippets/wp-acf-escaping-sanitizing.js';
 import { cssOnlyTabs } from './snippets/css-only-tabs.js';
 import { htmlPageRefresh } from './snippets/html-simple-page-refresh.js';
+import { apiFetch } from './snippets/js-api-fetch.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -91,6 +92,7 @@ let allSnippets = [
   wpAcfEscapingSanitizing,
   cssOnlyTabs,
   htmlPageRefresh,
+  apiFetch,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
@@ -124,13 +126,7 @@ for (let i = 0; i < allSnippets.length; i++) {
 
   // create snippet container
   const snippetContainer = document.createElement('article');
-  snippetContainer.classList.add(
-    'snippet-container',
-    'bg-white',
-    'rounded-xl',
-    'drop-shadow-2xl',
-    'mt-10'
-  );
+  snippetContainer.classList.add('snippet-container', 'bg-white', 'rounded-xl', 'drop-shadow-2xl', 'mt-10');
   snippetContainer.setAttribute('data-categories', snippetCats);
   snippetContainer.setAttribute('id', snippetName.replace(/ /g, '-'));
 
@@ -140,9 +136,7 @@ for (let i = 0; i < allSnippets.length; i++) {
 
   const snippetdetailsCats = document.createElement('div');
   snippetdetailsCats.classList.add('categories');
-  const snippetdetailsCatsText = document.createTextNode(
-    snippetCats.join(', ')
-  );
+  const snippetdetailsCatsText = document.createTextNode(snippetCats.join(', '));
   snippetdetailsCats.appendChild(snippetdetailsCatsText);
 
   const snippetdetailsName = document.createElement('h2');
@@ -172,10 +166,7 @@ for (let i = 0; i < allSnippets.length; i++) {
 
     snippetCodeContainer.appendChild(snippetPreTag);
   } else {
-    const [tabBtnsContainer, tabsContainer] = buildTabs(
-      theSnippet,
-      snippetLanguage
-    );
+    const [tabBtnsContainer, tabsContainer] = buildTabs(theSnippet, snippetLanguage);
     snippetCodeContainer.appendChild(tabBtnsContainer);
     snippetCodeContainer.appendChild(tabsContainer);
   }
@@ -199,15 +190,7 @@ for (let i = 0; i < snippetCategories.length; i++) {
   // create button
   const menuCategoryItemBtn = document.createElement('button');
   menuCategoryItemBtn.setAttribute('data-category-type', snippetCategories[i]);
-  menuCategoryItemBtn.classList.add(
-    'text-white',
-    'hover:text-bcolor-1',
-    'select-cat',
-    'bg-bcolor-2',
-    'rounded-full',
-    'px-4',
-    'pb-1'
-  );
+  menuCategoryItemBtn.classList.add('text-white', 'hover:text-bcolor-1', 'select-cat', 'bg-bcolor-2', 'rounded-full', 'px-4', 'pb-1');
 
   // create and add category text to button
   const menuCategoryItemText = document.createTextNode(snippetCategories[i]);
@@ -266,24 +249,22 @@ const autoCompleteJS = new autoComplete({
   },
 });
 
-document
-  .querySelector('#autocomplete')
-  .addEventListener('selection', function (event) {
-    // clear any hidden snippets
-    snippetContainers.forEach((element) => {
-      element.classList.remove('hide-snippet');
-    });
-
-    let codeName = event.detail.selection.value;
-    let codeAnchor = document.getElementById(codeName.replace(/ /g, '-'));
-    let headerOffset = 90;
-    let elementPosition = codeAnchor.getBoundingClientRect().top;
-    let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    window.scrollTo({
-      top: offsetPosition,
-      //  behavior: "smooth"
-    });
+document.querySelector('#autocomplete').addEventListener('selection', function (event) {
+  // clear any hidden snippets
+  snippetContainers.forEach((element) => {
+    element.classList.remove('hide-snippet');
   });
+
+  let codeName = event.detail.selection.value;
+  let codeAnchor = document.getElementById(codeName.replace(/ /g, '-'));
+  let headerOffset = 90;
+  let elementPosition = codeAnchor.getBoundingClientRect().top;
+  let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  window.scrollTo({
+    top: offsetPosition,
+    //  behavior: "smooth"
+  });
+});
 
 function buildTabs(snippet, language) {
   // loop and get all tabNames
