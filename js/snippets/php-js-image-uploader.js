@@ -4,18 +4,40 @@ export const phpAjaxImgUploader = {
   language: 'php',
   snippet: [
     {
-      language: 'php',
-      tabName: 'index.php',
+      language: 'html',
+      tabName: 'HTML + JS',
       content: `
   <!-- make sure to create the uploads folder first! -->
   <form id="upload_form" enctype="multipart/form-data">
-    <input type="file" name="file" id="file">
+    <!-- 
+      "accept" attribute is used to specify the types of files to allow.
+      In this case, "image/*" means that any file with a MIME type that starts with "image/" will be accepted.
+
+      Other types of accept values:
+      accept=".png, .jpg, .jpeg, .pdf"
+      accept="application/pdf"
+      accept="video/*"
+      accept="audio/*"
+      accept=".docx, .xlsx, .pptx"
+
+      Remove the attribute to allow all file types, but be careful.
+    -->
+    <input type="file" name="file" id="file" accept="image/*">
     <input type="button" value="Upload File" onclick="uploadFile()">
   </form>
   <div id="upload_status"></div>
   <img id="uploaded_image" src="" alt="">
   <script>
-    // get curreent site url
+    // validate file size
+    document.getElementById("file").addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (file.size > 2 * 1024 * 1024) {
+        alert("You can upload the file of maximum 2MB only.");
+        e.target.value = ""; // clears the file input so they don't upload it.
+      }
+    });
+
+    // get current site url
     var site_url = window.location.href;
     function uploadFile(){
       var file = document.getElementById("file").files[0];
@@ -71,24 +93,16 @@ export const phpAjaxImgUploader = {
     $fileExt = explode('.', $fileName);
     $fileActualExt = strtolower(end($fileExt));
     
-    $allowed = array('jpg', 'jpeg', 'png');
-    
-    if(in_array($fileActualExt, $allowed)){
-      if($fileError === 0){
-        if($fileSize < 1000000){
-          $fileNameNew = uniqid('', true).".".$fileActualExt;
-          $fileDestination = 'uploads/'.$fileNameNew;
-          move_uploaded_file($fileTmpName, $fileDestination);
-          // echo out a JSON response with the file location
-          echo json_encode(['fileLocation' => $fileDestination]);
-        }else{              
-          echo json_encode(['error' => "Your file is too big!"]);
-        }
-      }else{     
-        echo json_encode(['error' => "There was an error uploading your file!"]);    
-      }
-    }else{
-      echo json_encode(['error' => 'You cannot upload files of this type!']);    
+    if($fileError === 0){
+      $fileNameNew = $fileName; // uploads the file with original name, will replace if file with same name already exists
+      // The one below uploads the file with a unique name instead of the original name to prevent overwrites. But we don't know the name it is random string.
+      // $fileNameNew = uniqid('', true).".".$fileActualExt; 
+      $fileDestination = 'uploads/'.$fileNameNew;
+      move_uploaded_file($fileTmpName, $fileDestination);
+      // echo out a JSON response with the file location
+      echo json_encode(['fileLocation' => $fileDestination]);
+    }else{     
+      echo json_encode(['error' => "There was an error uploading your file!"]);    
     }
   }
       `,
