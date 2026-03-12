@@ -45,6 +45,7 @@ import { cssOnlyTabs } from './snippets/css-only-tabs.js';
 import { htmlPageRefresh } from './snippets/html-simple-page-refresh.js';
 import { apiFetch } from './snippets/js-api-fetch.js';
 import { wpNavWalker } from './snippets/wp-nav-walker.js';
+import { jsObjectsTips } from './snippets/js-objects.js';
 
 // add snippet into the array
 let allSnippets = [
@@ -95,6 +96,7 @@ let allSnippets = [
   htmlPageRefresh,
   apiFetch,
   wpNavWalker,
+  jsObjectsTips,
 ];
 
 // we will use this array to save the snippet names and use it on autocomplete
