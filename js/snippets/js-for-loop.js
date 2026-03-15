@@ -11,6 +11,13 @@ for (const item of fruit) {
 }
 // returns: apple, banana, mango
 
+// array.entries() method returns an array of a given array's 
+// key/value pairs, in the same order as the original array.
+for (const item of fruit.entries()) {
+  console.log(item[0] + 1 + ': ' + item[1]);
+}
+// returns: 1: apple, 2: banana, 3: mango
+
 // For loop OLD WAY still works but not recommended
 for (let i = 0; i < fruit.length; i++) {
   console.log(fruit[i]);
