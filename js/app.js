@@ -39,6 +39,7 @@ import { snapApic } from './snippets/js-prompt-cell-camera-add-to-page.js';
 import { gitCommands } from './snippets/git-commands.js';
 import { gitBranches } from './snippets/git-branches.js';
 import { jsDestructureArray } from './snippets/js-destructuring-arrays.js';
+import { jsDestructureObjects } from './snippets/js-destructuring-objects.js';
 import { jsSpreadOperator } from './snippets/js-array-spread-operator.js';
 import { wpAcfEscapingSanitizing } from './snippets/wp-acf-escaping-sanitizing.js';
 import { cssOnlyTabs } from './snippets/css-only-tabs.js';
@@ -90,6 +91,7 @@ let allSnippets = [
   gitCommands,
   gitBranches,
   jsDestructureArray,
+  jsDestructureObjects,
   jsSpreadOperator,
   wpAcfEscapingSanitizing,
   cssOnlyTabs,
