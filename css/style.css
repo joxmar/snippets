@@ -58,6 +58,10 @@ code::-webkit-scrollbar-thumb {
   border: 3px solid var(--scrollbarBG);
 }
 
+code::selection {
+  background-color: #67428c; /* Highlight background color when selected */
+}
+
 .hide-snippet {
   display: none;
 }
