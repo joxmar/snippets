@@ -37,6 +37,7 @@ import { accessibleModalWindow } from './snippets/js-accessible-modal-window.js'
 import { wpQueryShortcode } from './snippets/wp-query-loop-shortcode.js';
 import { snapApic } from './snippets/js-prompt-cell-camera-add-to-page.js';
 import { gitCommands } from './snippets/git-commands.js';
+import { gitCommands2 } from './snippets/git-commands-2.js';
 import { gitBranches } from './snippets/git-branches.js';
 import { jsDestructureArray } from './snippets/js-destructuring-arrays.js';
 import { jsDestructureObjects } from './snippets/js-destructuring-objects.js';
@@ -89,6 +90,7 @@ let allSnippets = [
   wpQueryShortcode,
   snapApic,
   gitCommands,
+  gitCommands2,
   gitBranches,
   jsDestructureArray,
   jsDestructureObjects,
